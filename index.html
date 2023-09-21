@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="tip_cal_logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mooli&family=Skranji:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tip Calculator</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-image: url(tip_cal_img.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: crimson;
+        padding-inline: 15px;
+        padding-block: 0px;
+      }
+
+      #nav-head-2 {
+        color: #f2f2f2;
+        font-size: 32px;
+        font-family: Skranji;
+      }
+
+      #nav-head-3 {
+        color: #f2f2f2;
+        font-size: 24px;
+        font-weight: 400;
+        font-family: Skranji;
+      }
+
+      #main-container::before {
+        content: "";
+        background: #fff;
+        opacity: 0.5;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -45px;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 15px;
+        width: 462px;
+      }
+
+      #main-container {
+        /* width: 400px; */
+        padding-inline: 20px;
+        padding-block: 20px;
+        display: block;
+        margin: auto;
+        position: relative;
+        top: 50px;
+        z-index: 1;
+        /* background-color: #f0f0f0; */
+        /* border: 1px solid #ccc; */
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+        border-radius: 15px;
+      }
+
+      #calculator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #ffffff;
+        padding: 20px 10px;
+        border-radius: 11px;
+        width: 400px;
+        position: relative;
+        left: -44px;
+      }
+
+      label {
+        font-size: 24px;
+        letter-spacing: 1px;
+        line-height: 2.1rem;
+        margin-bottom: 8px;
+        font-weight: 400;
+        font-family: Skranji;
+      }
+
+      input {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: none;
+        border-bottom: 2px solid #000000;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        outline: none;
+        transition: border-color 0.3s ease;
+        font-size: 18px;
+        font-family: Skranji;
+        color: #000000;
+        text-align: center;
+        width: 80%;
+      }
+
+      input:focus {
+        border-bottom: 1px solid #000000;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+      }
+
+      select {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: none;
+        border-bottom: 2px solid #000000;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        outline: none;
+        transition: border-color 0.3s ease;
+        font-size: 18px;
+        font-family: Skranji;
+        color: #000000;
+        text-align: center;
+        width: 80%;
+      }
+
+      /* Styling for focused select elements */
+      select:focus {
+        border-bottom: 1px solid #000000;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+      }
+
+      button {
+        background-color: crimson;
+        padding: 8px 5px;
+        color: #fff;
+        width: 230px;
+        border-radius: 100px;
+        font-size: 20px;
+        letter-spacing: 1.4px;
+        font-family: Skranji;
+        font-weight: 600;
+        margin-top: 10px;
+        box-shadow: 1px 1px 1px 1px #000000;
+      }
+
+      button:hover {
+        background-color: rgb(222, 55, 89);
+      }
+
+      #tip-amt,
+      #total-amt {
+        font-size: 20px;
+        letter-spacing: 1.4px;
+        font-family: Skranji;
+        font-weight: 600;
+      }
+      @media screen and (max-width: 768px) {
+        body {
+          background-image: url(tip_cal_img_1.jpg);
+          background-repeat: no-repeat;
+          background-size: 120% 120%;
+        }
+        nav {
+          width: 100%;
+          flex-direction: column;
+        }
+        #nav-head-2 {
+          font-size: 22px;
+        }
+
+        #nav-head-3 {
+          font-size: 18px;
+        }
+        #main-container::before {
+          left: -19px;
+          width: 400px;
+        }
+        #calculator {
+          width: 350px;
+          left: -24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h2 id="nav-head-2">Tip Calculator</h2>
+      <h3 id="nav-head-3">Developer : Vanshika Nahar</h3>
+    </nav>
+    <br><br><br>
+    <div id="main-container">
+      <div id="calculator">
+        <label for="bill-amt">Bill Amount : </label>
+        <input
+          placeholder="Enter Bill Amount"
+          step="0.01"
+          type="number"
+          id="bill-amt"
+        />
+        <br />
+        <label for="tip-ptg">Tip Percentage : %</label>
+        <input
+          placeholder="Enter Tip Percentage"
+          step="0.01"
+          type="number"
+          id="tip-ptg"
+        />
+        <br />
+        <button onclick="calculateTip()">Calculate</button>
+        <br /><br />
+        <div id="tip-amt"></div>
+        <div id="total-amt"></div>
+      </div>
+    </div>
+    <script>
+      const calculateTip = () => {
+        let billAmount = parseFloat(document.getElementById("bill-amt").value);
+        let tipPercentage = parseFloat(
+          document.getElementById("tip-ptg").value
+        );
+
+        if (isNaN(billAmount) || isNaN(tipPercentage)) {
+          alert("Please Enter Valid Numbers : ");
+          return;
+        } else {
+          const tip = (billAmount * tipPercentage) / 100;
+          const total = billAmount + tip;
+
+          // Display the tip and total amounts in Indian Rupees (Rs)
+          document.getElementById(
+            "tip-amt"
+          ).innerHTML = `Tip Amount: Rs ${tip.toFixed(2)}`;
+          document.getElementById(
+            "total-amt"
+          ).innerHTML = `Total Amount: Rs ${total.toFixed(2)}`;
+        }
+      };
+    </script>
+  </body>
+</html>
